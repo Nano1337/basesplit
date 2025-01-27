@@ -14,3 +14,8 @@ TODO: fill in as we go
 
 3. Activate the virtual env. On mac/ubuntu run `source .venv/bin/activate` and on windows run `.\.venv\Scripts\activate`
 
+## Development and Testing
+
+1. Start the server with `python plivo_message.py`
+2. On another terminal (for local testing), run `ngrok http 5001`. The output should contain a forwarding URL, for example `https://07d7-129-59-122-134.ngrok-free.app`. Append `plivo-webhook` to the end of the URL, so it becomes `https://07d7-129-59-122-134.ngrok-free.app/plivo-webhook`. 
+3. Go to the [Plivo Dashboard](https://console.plivo.com/) and create a new application with a MMS-enabled phone number. 
