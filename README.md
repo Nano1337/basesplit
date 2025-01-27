@@ -18,4 +18,9 @@ TODO: fill in as we go
 
 1. Start the server with `python plivo_message.py`
 2. On another terminal (for local testing), run `ngrok http 5001`. The output should contain a forwarding URL, for example `https://07d7-129-59-122-134.ngrok-free.app`. Append `plivo-webhook` to the end of the URL, so it becomes `https://07d7-129-59-122-134.ngrok-free.app/plivo-webhook`. 
-3. Go to the [Plivo Dashboard](https://console.plivo.com/) and create a new application with a MMS-enabled phone number. 
+3. Go to the [Plivo Dashboard](https://console.plivo.com/) and create a new application with a MMS-enabled phone number. On the right-hand sidebar, click on `Messaging` > `Applications` > `XML`. See the image below for reference. NOTE: since we're using the free version of ngrok, the URL will change every time you restart ngrok so you'll have to update the URL in the Plivo dashboard.
+
+![image](images/image.png)
+
+4. Send an image to the phone number you just set up. You should receive a response with the receipt data in flask server logs. 
+
