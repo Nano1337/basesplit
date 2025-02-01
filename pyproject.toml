@@ -12,6 +12,7 @@ dependencies = [
     "openai>=1.60.1",
     "plivo>=4.58.3",
     "python-dotenv>=1.0.1",
+    "python-telegram-bot>=21.10",
     "requests>=2.32.3",
     "tenacity>=9.0.0",
 ]
