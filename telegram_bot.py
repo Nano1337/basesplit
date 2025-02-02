@@ -270,13 +270,25 @@ async def split_even_number_handler(update: Update, context: CallbackContext) ->
         metamask_link = f"https://metamask.app.link/{rest_of_uri}"
         print("Generated Link:", metamask_link)
         
-        # Create Telegram button
-        keyboard = [[InlineKeyboardButton("Pay Now", url=metamask_link)]]
-
+        # Construct a share message and build a Telegram share URL.
+        share_text = f"Please complete the payment by clicking the link: {metamask_link}"
+        telegram_share_url = (
+            "https://t.me/share/url?"
+            "url=" + urllib.parse.quote(metamask_link) +
+            "&text=" + urllib.parse.quote(share_text)
+        )
+        
+        # Create an inline keyboard with both "Pay Now" and "Share Payment Request" buttons.
+        keyboard = [
+            [
+                InlineKeyboardButton("Share Payment Request", url=telegram_share_url)
+            ]
+        ]
+        
         # Send the message
         await update.message.reply_text(
-            f"Requesting {eth_amount} ETH on Base Sepolia:\n"
-            "Tap below to pay with MetaMask:",
+            f"Requesting {eth_amount} ETH ({each_person_dollars} USD) on Base Sepolia:\n"
+            "Tap below to share the request with others:",
             reply_markup=InlineKeyboardMarkup(keyboard)
         )
         return ConversationHandler.END
