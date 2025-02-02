@@ -5,14 +5,16 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "cdp-langchain>=0.0.13",
     "flask>=3.1.0",
     "langchain>=0.3.15",
     "langchain-anthropic>=0.3.4",
-    "langchain-openai>=0.3.2",
+    "langchain-openai==0.2.9",
     "openai>=1.60.1",
     "plivo>=4.58.3",
     "python-dotenv>=1.0.1",
     "python-telegram-bot>=21.10",
     "requests>=2.32.3",
     "tenacity>=9.0.0",
+    "web3>=7.7.0",
 ]
